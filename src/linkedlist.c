@@ -19,7 +19,7 @@ list_ptr list_add(sprite_t sprite, list_ptr list)
 	list_ptr listTmp = list;
 	while(list->next!=NULL)
 		listTmp = list->next;
-	s_list_node_t *newCell = (s_list_node_t*) malloc(s_list_node_t);
+	s_list_node_t *newCell = (s_list_node_t*) malloc(sizeof(s_list_node_t));
 	if(newCell == NULL) return NULL;
 	newCell->data = sprite;
 	newCell->next = NULL;
@@ -33,7 +33,7 @@ int list_length(list_ptr l)
 {
 	if(l == NULL)
 		return 0;
-	uint32_t length = 0;
+	uint32_t length = 1;
 	while(l->next!=null)
 	{
 		l=l->next;
@@ -45,7 +45,6 @@ int list_length(list_ptr l)
 /* Reverse the order of a list
  * */
 void list_reverse(list_ptr * l)
-{
 }
 
 /* Copy a list to another one. 
@@ -53,7 +52,10 @@ void list_reverse(list_ptr * l)
  * */
 list_ptr list_clone(list_ptr list)
 {
-  return NULL;
+	list_ptr copy =  NULL;
+	uint32_t length = list_length(list);
+	memcpy(copy, list, length*(sizeof(s_sprite_t)+sizeof(list_ptr)));
+	return copy;
 }
 
 /* Return true if the list is empty
