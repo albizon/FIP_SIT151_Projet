@@ -17,7 +17,7 @@ WARNINGS=-Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition -Wextra
 # define any directories containing header files other than /usr/include
 #
 # INCLUDES = -I/home/newhall/include  -I../include
-INCLUDES = -I../inc
+INCLUDES = -Iinc
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
@@ -32,7 +32,7 @@ LFLAGS =
 LIBS = -lSDL_ttf -lm
 
 # define the C source files
-SRCS = ../src/main.c ../src/linkedlist.c ../src/sprite.c ../src/collider.c ../src/level.c
+SRCS = src/main.c src/linkedlist.c src/sprite.c src/collider.c src/level.c
 #display.c
 
 # define the C object files
@@ -51,7 +51,7 @@ SRCDIR = ../src
 OBJS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS))
 
 # define the executable file
-MAIN = cometbuster
+MAIN = build/cometbuster
 
 #
 # The following part of the makefile is generic; it can be used to
@@ -82,6 +82,6 @@ depend: $(SRCS)
 	makedepend $(INCLUDES) $^
 	
 install: all
-	cp cometbuster ../install/cometbuster_exe
+	cp build/cometbuster install/cometbuster_exe
 
 # DO NOT DELETE THIS LINE -- make depend needs it
