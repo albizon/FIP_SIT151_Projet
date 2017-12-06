@@ -31,7 +31,15 @@ list_ptr list_add(sprite_t sprite, list_ptr list)
  * */
 int list_length(list_ptr l)
 {
-  return 0;
+	if(l == NULL)
+		return 0;
+	uint32_t length = 0;
+	while(l->next!=null)
+	{
+		l=l->next;
+		length++;
+	}
+	return length;
 }
 
 /* Reverse the order of a list
