@@ -7,7 +7,8 @@
  * */
 list_ptr list_new(void)
 {
-  return NULL;
+	list_ptr list;
+  return list;
 }
 
 /* Add a new cel to a list. 
