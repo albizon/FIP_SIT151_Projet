@@ -8,4 +8,9 @@ install: all
 	cp rsc/fonts install/fonts
 	cp rsc/sprites install/sprites
 	
+clean
+	rm build/*.o
+	rm build/cometbuster_exe
+	rm install/cometbuster_exe
+	
 #Ligne Vide
