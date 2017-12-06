@@ -16,7 +16,15 @@ list_ptr list_new(void)
  * */
 list_ptr list_add(sprite_t sprite, list_ptr list)
 {
-  return NULL;
+	list_ptr listTmp = list;
+	while(list->next!=NULL)
+		listTmp = list->next;
+	s_list_node_t *newCell = (s_list_node_t*) malloc(s_list_node_t);
+	if(newCell == NULL) return NULL;
+	newCell->data = sprite;
+	newCell->next = NULL;
+	listTmp->next = newCell;
+  return list;
 }
 
 /* Return the length of a list
