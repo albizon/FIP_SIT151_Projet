@@ -60,7 +60,10 @@ list_ptr list_clone(list_ptr list)
  * */
 bool list_is_empty(list_ptr l)
 {
-  return true;
+	if(l==NULL)
+		return TRUE;
+	else
+		return FALSE;
 }
 
 /* Search the first cel of the list & 
