@@ -4,6 +4,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(cometbuster)
 
+#Changement du chemin de recherche des modules
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${projet_SOURCE_DIR}/cmake")
+
 #Changement du chemin de sortie des executables
 
 set(EXECUTABLE_OUTPUT_PATH build/)
