@@ -44,7 +44,9 @@ find_package(SDL_ttf REQUIRED)
 
 
 set(SDL_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL.so)
+set(SDL_TTF_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL_ttf.so)
 set(SDL_INCLUDE_DIRS /usr/include/SDL/SDL.h)
+set(SDL_TTF_INCLUDE_DIR /usr/include/SDL/SDL_ttf.h)
 
 message(${SDL_LIBRARIES} NONE)
 message(${SDL_TTF_LIBRARIES} NONE)
