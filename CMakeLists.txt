@@ -63,7 +63,8 @@ target_link_libraries(
         cometbuster_exe
 
         ${SDL_LIBRARIES}
-		${SDL_TTF_LIBRAIRIES}   
+		${SDL_TTF_LIBRAIRIES}
+		m   
 
 )
 
