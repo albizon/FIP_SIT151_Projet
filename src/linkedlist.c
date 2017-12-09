@@ -118,6 +118,16 @@ sprite_t list_pop_sprite(list_ptr * l)
  * */
 void list_remove(list_ptr elt, list_ptr *l)
 {
+	list_ptr tmp=*l;
+	if(*l==elt){
+		*l=elt->next;
+	}
+	else{
+		while(tmp->next!=elt){
+			tmp=tmp->next;
+		}
+		tmp->next=tmp->next->next;
+}
 }
 
 /* Wipe out a list. 
