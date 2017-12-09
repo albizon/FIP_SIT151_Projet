@@ -42,6 +42,10 @@ find_package(SDL_ttf REQUIRED)
 
 #Inclusion des entêtes
 
+
+set(SDL_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL.so)
+set(SDL_INCLUDE_DIRS /usr/include/SDL/SDL.h)
+
 message(${SDL_LIBRARIES} NONE)
 message(${SDL_TTF_LIBRARIES} NONE)
 
