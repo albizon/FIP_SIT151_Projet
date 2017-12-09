@@ -12,5 +12,8 @@ clean:
 	rm build/*.o
 	rm build/cometbuster_exe
 	rm install/cometbuster_exe
+	rm install/scores.txt
+	rm install/fonts
+	rm install/sprites
 	
 #Ligne Vide
