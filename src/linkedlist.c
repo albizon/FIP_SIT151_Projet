@@ -82,7 +82,14 @@ sprite_t list_head_sprite(list_ptr l)
  * */
 list_ptr list_next(list_ptr l)
 {
-  return NULL;
+    list_ptr lnext=l;
+    if (lnext->next!=NULL)
+    {
+        lnext=l->next;
+        return lnext;
+    }
+    else
+        return NULL;
 }
 
 /* Search the last cel of a list 
