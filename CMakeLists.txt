@@ -25,18 +25,22 @@ file(
 
 )
 
+#Intégrtion de la SDL2
+
+#find_package(SDL2 REQUIRED)
+#find_package(SDL2_image REQUIRED)
+#find_package(SDL2_ttf REQUIRED)
+
 #Intégrtion de la SDL
 
-find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
-find_package(SDL2_ttf REQUIRED)
+find_package(SDL REQUIRED)
+find_package(SDL_ttf REQUIRED)
 
 #Inclusion des entêtes
 
 include_directories(/inc 
-					${SDL2_INCLUDE_DIRS}
-					${SDL2_IMAGE_INCLUDE_DIR}
-					${SDL2_TTF_INCLUDE_DIR})
+					${SDL_INCLUDE_DIRS}
+					${SDL_TTF_INCLUDE_DIR})
 
 #Déclaration de l'exécutable
 
@@ -54,8 +58,7 @@ target_link_libraries(
 
         cometbuster_exe
 
-        ${SDL2_LIBRARIES} 
-        ${SDL2_IMAGE_INCLUDE_DIR}
-		${SDL2_TTF_INCLUDE_DIR}   
+        ${SDL_LIBRARIES}
+		${SDL_TTF_LIBRAIRIES}   
 
 )
