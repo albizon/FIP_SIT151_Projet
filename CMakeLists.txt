@@ -6,7 +6,7 @@ project(cometbuster)
 
 #Changement du chemin de recherche des modules
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${projet_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${projet_SOURCE_DIR}cmake/")
 message(${CMAKE_MODULE_PATH})
 
 #Changement du chemin de sortie des executables
