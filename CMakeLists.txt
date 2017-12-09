@@ -1,0 +1,73 @@
+cmake_minimum_required(VERSION 3.5)
+
+#Déclaration du projet
+
+project(cometbuster)
+
+#Changement du chemin de recherche des modules
+
+execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile2)
+execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/Makefile)
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${cometbuster_SOURCE_DIR}/cmake")
+message(${CMAKE_MODULE_PATH})
+
+#Changement du chemin de sortie des executables
+
+set(EXECUTABLE_OUTPUT_PATH build/)
+set(CMAKE_BINARY_DIR build/)
+
+#Génération de la liste des fichiers sources
+
+file(
+
+        GLOB_RECURSE
+
+        source_files
+
+        src/*
+
+)
+
+#Intégrtion de la SDL2
+
+#find_package(SDL2 REQUIRED)
+#find_package(SDL2_image REQUIRED)
+#find_package(SDL2_ttf REQUIRED)
+
+#Intégrtion de la SDL
+
+find_package(SDL REQUIRED)
+find_package(SDL_ttf REQUIRED)
+
+#Inclusion des entêtes
+
+include_directories(${cometbuster_SOURCE_DIR}/inc 
+					${SDL_INCLUDE_DIRS}
+					${SDL_TTF_INCLUDE_DIR})
+
+#Déclaration de l'exécutable
+
+add_executable(
+
+        cometbuster_exe
+
+        ${source_files}
+
+)
+
+#linkage des libs
+
+target_link_libraries(
+
+        cometbuster_exe
+
+        ${SDL_LIBRARIES}
+		${SDL_TTF_LIBRAIRIES}   
+
+)
+
+execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile)
+execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/Makefile)
+execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/build/Makefile2 ${cometbuster_SOURCE_DIR}/build/Makefile)
+execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/build/Makefile2)

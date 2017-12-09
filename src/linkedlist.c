@@ -7,7 +7,8 @@
  * */
 list_ptr list_new(void)
 {
-  return NULL;
+	list_ptr list;
+  return list;
 }
 
 /* Add a new cel to a list. 
@@ -15,20 +16,35 @@ list_ptr list_new(void)
  * */
 list_ptr list_add(sprite_t sprite, list_ptr list)
 {
-  return NULL;
+	list_ptr listTmp = list;
+	while(list->next!=NULL)
+		listTmp = list->next;
+	s_list_node_t *newCell = (s_list_node_t*) malloc(sizeof(s_list_node_t));
+	if(newCell == NULL) return NULL;
+	newCell->data = sprite;
+	newCell->next = NULL;
+	listTmp->next = newCell;
+  return list;
 }
 
 /* Return the length of a list
  * */
 int list_length(list_ptr l)
 {
-  return 0;
+	if(l == NULL)
+		return 0;
+	uint32_t length = 1;
+	while(l->next!=null)
+	{
+		l=l->next;
+		length++;
+	}
+	return length;
 }
 
 /* Reverse the order of a list
  * */
 void list_reverse(list_ptr * l)
-{
 }
 
 /* Copy a list to another one. 
@@ -36,14 +52,20 @@ void list_reverse(list_ptr * l)
  * */
 list_ptr list_clone(list_ptr list)
 {
-  return NULL;
+	list_ptr copy =  NULL;
+	uint32_t length = list_length(list);
+	memcpy(copy, list, length*(sizeof(s_sprite_t)+sizeof(list_ptr)));
+	return copy;
 }
 
 /* Return true if the list is empty
  * */
 bool list_is_empty(list_ptr l)
 {
-  return true;
+	if(l==NULL)
+		return TRUE;
+	else
+		return FALSE;
 }
 
 /* Search the first cel of the list & 
