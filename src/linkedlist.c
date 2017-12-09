@@ -98,7 +98,20 @@ list_ptr list_next(list_ptr l)
  * */
 sprite_t list_pop_sprite(list_ptr * l)
 {
-  return NULL;
+	  sprite_t dlast;
+	   list_ptr current=*l;
+	  if(current->next==NULL){
+		  *l=NULL;
+		  dlast=current->data;
+	  }
+	  else{
+		  while (current->next->next!=NULL)  {
+				current=current->next;
+			}
+		  dlast=current->next->data;
+		  current->next=NULL;
+	}
+	  return dlast;
 }
 
 /* Remove the given cel in a list
