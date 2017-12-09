@@ -1,6 +1,7 @@
 all:
 	cmake . -G"Unix Makefiles"
 	make -f build/Makefile
+	git checkout Makefile
 	
 install: all
 	cp build/cometbuster_exe install/cometbuster_exe
