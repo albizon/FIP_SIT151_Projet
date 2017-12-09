@@ -73,7 +73,9 @@ bool list_is_empty(list_ptr l)
  * */
 sprite_t list_head_sprite(list_ptr l)
 {
-  return NULL;
+	sprite_t head;
+	head=l->data;
+  return head;
 }
 
 /* Return the next cel in list or NULL
