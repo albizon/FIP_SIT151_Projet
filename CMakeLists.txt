@@ -12,6 +12,7 @@ message(${CMAKE_MODULE_PATH})
 #Changement du chemin de sortie des executables
 
 set(EXECUTABLE_OUTPUT_PATH build/)
+set(CMAKE_BINARY_DIR build/)
 
 #Génération de la liste des fichiers sources
 
