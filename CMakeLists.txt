@@ -6,6 +6,8 @@ project(cometbuster)
 
 #Changement du chemin de recherche des modules
 
+execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile)
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${cometbuster_SOURCE_DIR}/cmake")
 message(${CMAKE_MODULE_PATH})
 
