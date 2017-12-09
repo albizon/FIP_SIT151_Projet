@@ -17,6 +17,9 @@ message(${CMAKE_MODULE_PATH})
 set(EXECUTABLE_OUTPUT_PATH ${cometbuster_SOURCE_DIR}/build/)
 set(CMAKE_BINARY_DIR ${cometbuster_SOURCE_DIR}/build/)
 
+set(RUNTIME_INSTALL ${cometbuster_SOURCE_DIR}/build/install)
+set(LIBRARY_INSTALL ${cometbuster_SOURCE_DIR}/build/install/lib)
+
 #Génération de la liste des fichiers sources
 
 file(
@@ -78,13 +81,13 @@ target_link_libraries(
 )
 
 install(TARGETS cometbuster_exe ${SDL_LIBRARIES} ${SDL_TTF_LIBRAIRIES}
-		RUNTIME DESTINATION ${cometbuster_SOURCE_DIR}/build/install
-        LIBRARY DESTINATION ${cometbuster_SOURCE_DIR}/build/install/lib)
+		RUNTIME DESTINATION ${RUNTIME_INSTALL}
+        LIBRARY DESTINATION ${LIBRARY_INSTALL})
         
-install(FILES rsc/scores.txt DESTINATION ${cometbuster_SOURCE_DIR}/install/)
+install(FILES rsc/scores.txt DESTINATION ${RUNTIME_INSTALL})
 
-install(DIRECTORY rsc/fonts DESTINATION ${cometbuster_SOURCE_DIR}/install/)
-install(DIRECTORY rsc/sprites DESTINATION ${cometbuster_SOURCE_DIR}/install/)
+install(DIRECTORY rsc/fonts DESTINATION ${RUNTIME_INSTALL})
+install(DIRECTORY rsc/sprites DESTINATION ${RUNTIME_INSTALL})
 
 execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile)
 execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/Makefile)
