@@ -42,8 +42,8 @@ find_package(SDL_ttf REQUIRED)
 
 #Inclusion des entêtes
 
-message(${SDL_INCLUDE_DIRS})
-message(${SDL_TTF_INCLUDE_DIR})
+message(${SDL_INCLUDE_DIRS} NONE)
+message(${SDL_TTF_INCLUDE_DIR} NONE)
 
 include_directories(${cometbuster_SOURCE_DIR}/inc 
 					${SDL_INCLUDE_DIRS}
