@@ -140,4 +140,5 @@ void list_free(list_ptr l)
 		sprite_free(tmp->data);
 		tmp=tmp->next;
 	}
+	// l=NULL;
 }
