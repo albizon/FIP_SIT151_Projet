@@ -135,4 +135,9 @@ void list_remove(list_ptr elt, list_ptr *l)
  * */
 void list_free(list_ptr l)
 {
+	list_ptr tmp=l;
+	while(tmp!=NULL){
+		sprite_free(tmp->data);
+		tmp=tmp->next;
+	}
 }
