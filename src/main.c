@@ -333,6 +333,7 @@ int main(int argc, char* argv[]) {
   ret = init_sdl();
   if (ret) {
     perror("Error init_sdl: ");
+    TRACE_LOG("Erreur d initialisation de la SDL");
     SDL_Quit();
     return(ret);
   }

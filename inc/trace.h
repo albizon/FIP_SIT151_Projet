@@ -13,14 +13,14 @@ extern FILE *stdlog;
 	struct tm * t; 																															\
 	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	\
 	timestamp = time(NULL);																													\
-	t = localtime(×tamp);																													\
+	t = localtime(timestamp);																													\
 																																			\
 																																			\
 																																			\
 	fprintf( stdlog,															                                       						\
 			"%02u/%02u/%04u, %02u:%02u:%02u : %s (%s:%d) : %s\n",           				  												\
 			t->tm_mday, t->tm_mon, 1900 + t->tm_year, t->tm_hour, t->tm_min, t->tm_sec, __FUNCTION__, __FILE__, __LINE__,(message));		\
-	free(t)																																	\
+	free(t);																																\
 }																																			\
 
 void init_log(char* pathLog);
