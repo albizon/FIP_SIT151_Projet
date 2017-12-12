@@ -343,7 +343,7 @@ int main(int argc, char* argv[]) {
 
   // fonts
   font_score = TTF_OpenFont("fonts/LinLibertine_DR.ttf", 24);
-  font_next_level = TTF_OpenFont("fonts/LinLibertine_DR.ttf", 36);;
+  font_next_level = TTF_OpenFont("fonts/LinLibertine_DR.ttf", 36);
 
   // create the text sprites list
   l_sprite_text = list_new();
