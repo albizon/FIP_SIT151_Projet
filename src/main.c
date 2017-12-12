@@ -3,7 +3,9 @@
 #include <math.h>
 #include <time.h>
 #include <stdbool.h>
+#include <stdio.h>
 
+#include <string.h>
 #include "sprite.h"
 #include "collider.h"
 #include "linkedlist.h"
