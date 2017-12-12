@@ -82,6 +82,6 @@ depend: $(SRCS)
 	makedepend $(INCLUDES) $^
 	
 install: all
-	cp build/cometbuster install/cometbuster_exe
+	cp build/cometbuster_exe install/cometbuster_exe
 
 # DO NOT DELETE THIS LINE -- make depend needs it
