@@ -1,6 +1,9 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#define TRUE 1
+#define FALSE 0
+
 #include <stdbool.h>
 #include <SDL.h>
 
@@ -13,8 +16,8 @@ typedef struct list_node {
 
 
 list_ptr list_new(void);//new_empty
-list_ptr list_add(sprite_t v, list_ptr l);
-list_ptr list_clone(list_ptr l);
+list_ptr list_add(sprite_t v, list_ptr list);
+list_ptr list_clone(list_ptr list);
 void list_reverse(list_ptr * l);
 list_ptr list_next(list_ptr l);
 

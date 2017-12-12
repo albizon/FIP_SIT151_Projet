@@ -6,16 +6,16 @@ project(cometbuster)
 
 #Changement du chemin de recherche des modules
 
-execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile2)
-execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/Makefile)
-
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${cometbuster_SOURCE_DIR}/cmake")
 message(${CMAKE_MODULE_PATH})
 
 #Changement du chemin de sortie des executables
 
-set(EXECUTABLE_OUTPUT_PATH build/)
-set(CMAKE_BINARY_DIR build/)
+set(EXECUTABLE_OUTPUT_PATH ${cometbuster_SOURCE_DIR}/build/)
+set(CMAKE_BINARY_DIR ${cometbuster_SOURCE_DIR}/build/)
+
+set(RUNTIME_INSTALL ${cometbuster_SOURCE_DIR}/build/install)
+set(LIBRARY_INSTALL ${cometbuster_SOURCE_DIR}/build/install/lib)
 
 #Génération de la liste des fichiers sources
 
@@ -29,18 +29,21 @@ file(
 
 )
 
-#Intégrtion de la SDL2
-
-#find_package(SDL2 REQUIRED)
-#find_package(SDL2_image REQUIRED)
-#find_package(SDL2_ttf REQUIRED)
-
 #Intégrtion de la SDL
 
-find_package(SDL REQUIRED)
-find_package(SDL_ttf REQUIRED)
+#find_package(SDL REQUIRED)
+#find_package(SDL_ttf REQUIRED)
 
 #Inclusion des entêtes
+
+
+set(SDL_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL.so)
+set(SDL_TTF_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL_ttf-2.0.so.0)
+#set(SDL_INCLUDE_DIRS /usr/include/SDL)
+#set(SDL_TTF_INCLUDE_DIR /usr/include/SDL)
+
+#message(${SDL_LIBRARIES} NONE)
+#message(${SDL_TTF_LIBRARIES} NONE)
 
 include_directories(${cometbuster_SOURCE_DIR}/inc 
 					${SDL_INCLUDE_DIRS}
@@ -63,11 +66,18 @@ target_link_libraries(
         cometbuster_exe
 
         ${SDL_LIBRARIES}
-		${SDL_TTF_LIBRAIRIES}   
+		${SDL_TTF_LIBRAIRIES}
+		m   
 
 )
 
-execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/Makefile ${cometbuster_SOURCE_DIR}/build/Makefile)
-execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/Makefile)
-execute_process(COMMAND cp ${cometbuster_SOURCE_DIR}/build/Makefile2 ${cometbuster_SOURCE_DIR}/build/Makefile)
-execute_process(COMMAND rm ${cometbuster_SOURCE_DIR}/build/Makefile2)
+#install(TARGETS cometbuster_exe ${SDL_LIBRARIES} ${SDL_TTF_LIBRAIRIES}
+#		RUNTIME DESTINATION ${RUNTIME_INSTALL}
+#        LIBRARY DESTINATION ${LIBRARY_INSTALL})
+        
+#install(FILES rsc/scores.txt DESTINATION ${RUNTIME_INSTALL})
+
+#install(DIRECTORY rsc/fonts DESTINATION ${RUNTIME_INSTALL})
+#install(DIRECTORY rsc/sprites DESTINATION ${RUNTIME_INSTALL})
+
+execute_process(COMMAND make)

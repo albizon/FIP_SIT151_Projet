@@ -34,7 +34,7 @@ int list_length(list_ptr l)
 	if(l == NULL)
 		return 0;
 	uint32_t length = 1;
-	while(l->next!=null)
+	while(l->next!=NULL)
 	{
 		l=l->next;
 		length++;
@@ -45,6 +45,7 @@ int list_length(list_ptr l)
 /* Reverse the order of a list
  * */
 void list_reverse(list_ptr * l)
+{
 }
 
 /* Copy a list to another one. 
