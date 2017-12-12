@@ -29,7 +29,7 @@ LFLAGS =
 #   if I want to link in libraries (libx.so or libx.a) I use the -llibname
 #   option, something like (this will link in libmylib.so and libm.so:
 # LIBS = -lmylib -lm
-LIBS = -lSDL_ttf -lm
+LIBS = -lSDL_ttf -lm -lSDL
 
 # define the C source files
 SRCS = src/main.c src/linkedlist.c src/sprite.c src/collider.c src/level.c
