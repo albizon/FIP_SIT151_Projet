@@ -51,7 +51,7 @@ SRCDIR = ../src
 OBJS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS))
 
 # define the executable file
-MAIN = build/cometbuster
+MAIN = build/cometbuster_exe
 
 #
 # The following part of the makefile is generic; it can be used to
