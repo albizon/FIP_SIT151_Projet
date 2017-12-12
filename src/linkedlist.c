@@ -7,7 +7,7 @@
  * */
 list_ptr list_new(void)
 {
-	list_ptr list;
+	list_ptr list = NULL;
   return list;
 }
 
