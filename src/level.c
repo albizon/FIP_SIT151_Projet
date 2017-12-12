@@ -5,7 +5,7 @@
 #include <SDL.h>
 #include <math.h>
 #include <time.h>
-
+#include <stdlib.h>
 #include "linkedlist.h"
 //#include "config.h"
 #include "level.h"
