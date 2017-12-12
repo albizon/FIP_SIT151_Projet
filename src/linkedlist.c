@@ -129,6 +129,8 @@ void list_remove(list_ptr elt, list_ptr *l)
 		}
 		tmp->next=tmp->next->next;
 }
+	free(elt->data);
+	free(elt);
 }
 
 /* Wipe out a list. 
@@ -141,5 +143,6 @@ void list_free(list_ptr l)
 		sprite_free(tmp->data);
 		tmp=tmp->next;
 	}
+	free(l);
 	// l=NULL;
 }
