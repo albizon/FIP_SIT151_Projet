@@ -314,8 +314,8 @@ void split(sprite_t old_comet, list_ptr **l_sprite_comet, enum sprite_type new_t
 
 
 int main(int argc, char* argv[]) {
-	init_log("cometbuster.log");
-	TRACE_LOG("Debut du main");
+	//init_log("cometbuster.log");
+	//TRACE_LOG("Debut du main");
   SDL_Surface *temp, *bg;
   SDL_Rect rcBg;
   int colorkey;
@@ -333,7 +333,7 @@ int main(int argc, char* argv[]) {
   ret = init_sdl();
   if (ret) {
     perror("Error init_sdl: ");
-    TRACE_LOG("Erreur d initialisation de la SDL");
+    //TRACE_LOG("Erreur d initialisation de la SDL");
     SDL_Quit();
     return(ret);
   }
@@ -498,7 +498,7 @@ int main(int argc, char* argv[]) {
   TTF_Quit();
   /* cleanup SDL */
   SDL_Quit();
-  close_log();
+  //close_log();
   return 0;
 }//main
 
