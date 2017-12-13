@@ -80,4 +80,4 @@ target_link_libraries(
 #install(DIRECTORY rsc/fonts DESTINATION ${RUNTIME_INSTALL})
 #install(DIRECTORY rsc/sprites DESTINATION ${RUNTIME_INSTALL})
 
-execute_process(COMMAND make)
+#execute_process(COMMAND make)

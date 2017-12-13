@@ -73,6 +73,7 @@ $(MAIN): $(OBJS)
 # the rule(a .c file) and $@: the name of the target of the rule (a .o file)
 # (see the gnu make manual section about automatic variables)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
+	mkdir -p build
 	$(CC) $(CFLAGS) $(WARNINGS) $(INCLUDES) -c $<  -o $@
 
 clean:
@@ -82,6 +83,7 @@ depend: $(SRCS)
 	makedepend $(INCLUDES) $^
 	
 install: all
+	mkdir -p install
 	cp build/cometbuster_exe install/cometbuster_exe
 
 # DO NOT DELETE THIS LINE -- make depend needs it
