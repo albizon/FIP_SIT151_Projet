@@ -31,23 +31,23 @@ file(
 
 #Intégrtion de la SDL
 
-#find_package(SDL REQUIRED)
-#find_package(SDL_ttf REQUIRED)
+find_package(SDL REQUIRED)
+find_package(SDL_ttf REQUIRED)
 
 #Inclusion des entêtes
 
 
-set(SDL_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL.so)
-set(SDL_TTF_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL_ttf-2.0.so.0)
+#set(SDL_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL.so)
+#set(SDL_TTF_LIBRARIES /usr/lib/x86_64-linux-gnu/libSDL_ttf-2.0.so.0)
 #set(SDL_INCLUDE_DIRS /usr/include/SDL)
 #set(SDL_TTF_INCLUDE_DIR /usr/include/SDL)
 
-#message(${SDL_LIBRARIES} NONE)
-#message(${SDL_TTF_LIBRARIES} NONE)
+message(NONE ${SDL_LIBRARIES})
+message(NONE ${SDL_TTF_LIBRARIES})
 
 include_directories(${cometbuster_SOURCE_DIR}/inc 
 					${SDL_INCLUDE_DIRS}
-					${SDL_TTF_INCLUDE_DIR})
+					${SDL_TTF_INCLUDE_DIRS})
 
 #Déclaration de l'exécutable
 
@@ -64,9 +64,8 @@ add_executable(
 target_link_libraries(
 
         cometbuster_exe
-
         ${SDL_LIBRARIES}
-		${SDL_TTF_LIBRAIRIES}
+		${SDL_TTF_LIBRARIES}
 		m   
 
 )
