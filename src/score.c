@@ -53,13 +53,19 @@ void write_score_file(char* path, score* scores, uint32_t nbScores)
 		{
 			fprintf(fileScores, "%s:%d", scores[iScore]->name, scores[iScore]->score);
 		}
+		fclose(fileScores);
 	}
 
 }
 
 void append_score_file(char* path, score* newScore)
 {
-
+	if(nbScores != 0 && scores != NULL && path !=NULL)
+	{
+		FILE *fileScores = fopen(path, "a");
+		fprintf(fileScores, "%s:%d", scores->name, scores->score);
+		fclose(fileScores);
+	}
 }
 
 score* read_score_file(char* path, uint32_t* nbScores)
@@ -69,5 +75,9 @@ score* read_score_file(char* path, uint32_t* nbScores)
 
 score* triScores(score* scoresIn, uint32_t nbScoresIn, uint32_t* nbScoresOut, ordreTriScores ordreTri)
 {
-	return NULL;
+	score* scoresTri;
+
+	memcpy(scoresTri, scoresIn, nbScoresIn*sizeof(score));
+	*nbScoresOut = nbScoresIn;
+	return scoresTri;
 }
