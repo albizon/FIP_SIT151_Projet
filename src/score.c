@@ -2,7 +2,19 @@
 
 void get_surname_player(char* surname, scoreScanType in)
 {
-
+	switch(in){
+		case TERMINAL:
+			printf("Veuillez saisir votre nom : /n");
+			scanf("%s", surname);
+			printf("Votre nom est : %s/n", surname);
+			break;
+		case GUI:
+			sprintf(surname, "ERROR");
+			break;
+		default:
+			sprintf(surname, "ERROR");
+			break;
+	}
 }
 
 void print_scores(score* scores, uint32_t nbScores, scorePrintType out)

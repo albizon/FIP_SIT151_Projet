@@ -13,10 +13,12 @@ typedef enum _scoreScanType{
 	GUI
 }scoreScanType;
 
-typedef enum _scorePrintType{
+typedef scoreScanType scorePrintType;
+
+/*typedef enum _scorePrintType{
 	TERMINAL,
 	GUI
-}scorePrintType;
+}scorePrintType;*/
 
 typedef enum _ordreTriScores{
 	DIRECT,
