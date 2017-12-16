@@ -11,6 +11,7 @@
 #include "collider.h"
 #include "linkedlist.h"
 #include "trace.h"
+#include "score.h"
 
 #define SPACESHIP_BOOST     0.25
 #define SPACESHIP_FRICTION  0.002
@@ -34,7 +35,7 @@ list_ptr l_sprite_life_counter;
 list_ptr l_score_el = NULL;
 
 bool shoot_again;
-int score;
+int scoreGen;
 int level = 21 ; //LEVEL_MIN;
 
 
@@ -166,7 +167,7 @@ void draw_score(TTF_Font * font) {
   char score_text[1024];
   sprite_t sprite;
 
-  sprintf(score_text, "%08d", score);
+  sprintf(score_text, "%08d", scoreGen);
   score_surf = TTF_RenderText_Solid(font, score_text, score_color);
   sprite = sprite_new_text(score_surf, 5, 5);
   if (l_score_el)
@@ -292,7 +293,7 @@ void split_and_score(list_ptr element, list_ptr *l_sprite_comet, bool update_sco
       diff = 60;
       break;
   }
-  score += (update_score)?diff:0;
+  scoreGen += (update_score)?diff:0;
 }
 
 /* Split an asteroid into two new objects which get most of parameters from
@@ -352,7 +353,7 @@ int main(int argc, char* argv[]) {
   l_sprite_text = list_new();
 
   // initialize score and score sprite
-  score = 0;
+  scoreGen = 0;
   draw_score(font_score);
   draw_life_counter();
 
@@ -429,7 +430,27 @@ int main(int argc, char* argv[]) {
             sprite_free(dead_sprite);
 	} else {
           printf(" ============ Game Over ============= \n");
-          printf("Score: you reached level %d with %d points\n",level,score);
+          printf("Score: you reached level %d with %d points\n",level,scoreGen);
+          score* structScore = (score*)malloc(sizeof(score));
+          structScore->score = scoreGen;
+
+          get_surname_player(&structScore->name, TERMINAL);
+          append_score_file("scores.txt", structScore);
+          free(structScore);
+
+
+          uint32_t *nbScoresRead;
+          uint32_t *nbScoresToPrint;
+          score* listScores = read_scores_file("scores.txt", nbScoresRead);
+
+          score* listScoresTri = triScores(listScores, nbScoresRead, nbScoresToPrint, INVERSE);
+
+          free(listScores);
+
+          print_scores(listScoresTri, *nbScoresToPrint, TERMINAL);
+
+          free(listScoresTri);
+
           fflush(stdout);
           gameover = true;
         }
@@ -489,6 +510,10 @@ int main(int argc, char* argv[]) {
     }
 
   }//loop !gameover
+
+
+
+
 
   printf("Bye bye.\n");
   /* free the space_ship sprite */

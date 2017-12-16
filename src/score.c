@@ -1,6 +1,6 @@
 #include "score.h"
 
-void get_surname_player(char* surname, scoreScanType type)
+void get_surname_player(char* surname, scoreScanType in)
 {
 
 }
@@ -15,17 +15,17 @@ void write_score_file(char* path, score* scores, uint32_t nbScores)
 
 }
 
-void append_score_file(char* path, score* newScores, uint32_t nbNewScores)
+void append_score_file(char* path, score* newScore)
 {
 
 }
 
-void read_score_file(char* path, score* scores, uint32_t* nbScores)
+score* read_score_file(char* path, uint32_t* nbScores)
 {
-
+	return NULL;
 }
 
-void triScores(score* scoresIn, uint32_t nbScoresIn, score* scoresOut, uint32_t* nbScoresOut, ordreTriScores ordreTri)
+score* triScores(score* scoresIn, uint32_t nbScoresIn, uint32_t* nbScoresOut, ordreTriScores ordreTri)
 {
-
+	return NULL;
 }
