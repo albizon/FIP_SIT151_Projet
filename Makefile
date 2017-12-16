@@ -32,7 +32,7 @@ LFLAGS =
 LIBS = -lSDL_ttf -lm -lSDL
 
 # define the C source files
-SRCS = src/main.c src/linkedlist.c src/sprite.c src/collider.c src/level.c
+SRCS = src/main.c src/linkedlist.c src/sprite.c src/collider.c src/level.c src/trace.h src/score.h
 #display.c
 
 # define the C object files

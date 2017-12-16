@@ -3,6 +3,9 @@
 
 #define MAX_LENGTH_SURNAME 30
 
+#include <stdio.h>
+#include <string.h>
+
 typedef struct _score{
 	uint32_t score;
 	char name[MAX_LENGTH_SURNAME];

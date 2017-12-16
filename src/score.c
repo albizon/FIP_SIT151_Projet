@@ -45,6 +45,15 @@ void print_scores(score* scores, uint32_t nbScores, scorePrintType out)
 
 void write_score_file(char* path, score* scores, uint32_t nbScores)
 {
+	if(nbScores != 0 && scores != NULL && path !=NULL)
+	{
+		FILE *fileScores = fopen(path, "w");
+		uint32_t iScore = 0;
+		while(iScore<nbScores)
+		{
+			fprintf(fileScores, "%s:%d", scores[iScore]->name, scores[iScore]->score);
+		}
+	}
 
 }
 
