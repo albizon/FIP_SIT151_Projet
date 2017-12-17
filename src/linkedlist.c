@@ -17,8 +17,8 @@ list_ptr list_new(void)
 list_ptr list_add(sprite_t sprite, list_ptr list)
 {
 	list_ptr listTmp = list;
-	while(list->next!=NULL)
-		listTmp = list->next;
+	while(listTmp->next!=NULL)
+		listTmp = listTmp->next;
 	s_list_node_t *newCell = (s_list_node_t*) malloc(sizeof(s_list_node_t));
 	if(newCell == NULL) return NULL;
 	newCell->data = sprite;
